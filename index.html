@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Style Clothes — descubra seu estilo e encontre novas combinações.">
+  <title>Style Clothes | Descubra seu estilo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#" data-page="home">Style clothes</a>
+    <nav aria-label="Navegação principal">
+      <button class="nav-link" data-page="home">Início</button>
+      <button class="nav-link" data-page="auth">Entrar/Cadastrar</button>
+      <button class="nav-link protected" data-page="profile">Meu perfil</button>
+      <button class="nav-link protected" data-page="cart">Carrinho <span id="cart-count">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-copy">
+          <h1>Descubra seu Estilo! <span class="sparkle">✳</span></h1>
+          <p>Encontre inspirações, descubra novas combinações e aprenda tudo o que você precisa para começar no mundo da moda.</p>
+          <button class="primary-btn" data-page="catalog">Explorar coleções</button>
+        </div>
+        <div class="hero-image image-slot">
+          <img src="assets/hero-model.jpg" alt="Modelo usando um look moderno"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <div class="image-placeholder">Adicione aqui<br><strong>hero-model.jpg</strong></div>
+        </div>
+      </div>
+
+      <div class="home-categories">
+        <h2>Encontre seu estilo</h2>
+        <div class="category-grid">
+          <button class="category-card" data-category="Feminino">
+            <div class="category-photo">
+              <img src="assets/categoria-feminino.jpg" alt="Moda feminina"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+              <span class="image-placeholder">categoria-feminino.jpg</span>
+            </div>
+            <span>Feminino</span>
+          </button>
+
+          <button class="category-card" data-category="Masculino">
+            <div class="category-photo">
+              <img src="assets/categoria-masculino.jpg" alt="Moda masculina"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+              <span class="image-placeholder">categoria-masculino.jpg</span>
+            </div>
+            <span>Masculino</span>
+          </button>
+
+          <button class="category-card" data-category="Fitness">
+            <div class="category-photo">
+              <img src="assets/categoria-fitness.jpg" alt="Moda fitness"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+              <span class="image-placeholder">categoria-fitness.jpg</span>
+            </div>
+            <span>Fitness</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="auth" class="page narrow-page">
+      <div class="auth-illustration image-slot">
+        <img src="assets/auth-model.jpg" alt="Modelo de moda"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+        <div class="image-placeholder">Espaço para foto<br><strong>auth-model.jpg</strong></div>
+      </div>
+
+      <div class="form-panel">
+        <div class="auth-tabs">
+          <button class="tab active" data-auth="login">Entrar</button>
+          <button class="tab" data-auth="register">Criar conta</button>
+        </div>
+
+        <form id="login-form" class="site-form">
+          <h1>Bem-vinda(o) de volta!</h1>
+          <label for="login-email">Gmail</label>
+          <input id="login-email" type="email" placeholder="seuemail@gmail.com" required>
+
+          <label for="login-password">Senha</label>
+          <input id="login-password" type="password" placeholder="Digite sua senha" required>
+
+          <button class="primary-btn full" type="submit">Entrar</button>
+          <div class="or">ou</div>
+
+          <button class="google-btn" type="button" id="google-btn">
+            <span class="google-g">G</span> Continuar com o Google
+          </button>
+
+          <p class="switch-copy">
+            Ainda não tem conta?
+            <button type="button" class="text-button" data-auth="register">Criar conta</button>
+          </p>
+        </form>
+
+        <form id="register-form" class="site-form hidden">
+          <h1>Criar conta</h1>
+
+          <label for="reg-name">Nome completo</label>
+          <input id="reg-name" type="text" placeholder="Seu nome completo" required>
+
+          <label for="reg-birth">Data de nascimento</label>
+          <input id="reg-birth" type="date" required>
+
+          <label for="reg-phone">Telefone</label>
+          <input id="reg-phone" type="tel" placeholder="(00) 00000-0000" required>
+
+          <label for="reg-email">Gmail</label>
+          <input id="reg-email" type="email" placeholder="seuemail@gmail.com" required>
+
+          <label for="reg-password">Criar senha</label>
+          <input id="reg-password" type="password" minlength="6"
+                 placeholder="Mínimo de 6 caracteres" required>
+
+          <button class="primary-btn full" type="submit">Confirmar dados</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="catalog" class="page">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">STYLE CLOTHES</p>
+          <h1 id="catalog-title">Escolha seu estilo</h1>
+        </div>
+        <div class="category-switch">
+          <button data-category="Feminino">Feminino</button>
+          <button data-category="Masculino">Masculino</button>
+          <button data-category="Fitness">Fitness</button>
+        </div>
+      </div>
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <section id="profile" class="page narrow-page">
+      <div class="profile-card">
+        <div class="avatar">SC</div>
+        <p class="eyebrow">MINHA CONTA</p>
+        <h1>Meu perfil</h1>
+
+        <form id="profile-form" class="site-form">
+          <label for="profile-name">Nome completo</label>
+          <input id="profile-name" type="text" placeholder="Seu nome">
+
+          <label for="profile-email">Gmail</label>
+          <input id="profile-email" type="email" placeholder="seuemail@gmail.com">
+
+          <label for="profile-phone">Telefone</label>
+          <input id="profile-phone" type="tel" placeholder="(00) 00000-0000">
+
+          <button class="primary-btn full" type="submit">Salvar alterações</button>
+        </form>
+        <button class="text-button" id="logout-btn">Sair da conta</button>
+      </div>
+    </section>
+
+    <section id="cart" class="page">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FINALIZE SUA ESCOLHA</p>
+          <h1>Meu carrinho</h1>
+        </div>
+      </div>
+
+      <div class="checkout-layout">
+        <div id="cart-items" class="cart-items">
+          <p class="empty-cart">Seu carrinho está vazio. Explore as coleções para adicionar produtos.</p>
+        </div>
+
+        <form id="checkout-form" class="checkout-form">
+          <h2>Dados para o pedido</h2>
+
+          <label for="buyer-name">Nome</label>
+          <input id="buyer-name" required placeholder="Nome completo">
+
+          <label for="buyer-phone">Telefone</label>
+          <input id="buyer-phone" required type="tel" placeholder="(00) 00000-0000">
+
+          <h3>Forma de pagamento</h3>
+          <div class="payment-options">
+            <label><input type="radio" name="payment" value="Dinheiro" required> Dinheiro</label>
+            <label><input type="radio" name="payment" value="Pix"> Pix</label>
+            <label><input type="radio" name="payment" value="Cartão"> Cartão</label>
+          </div>
+
+          <div class="total-row">
+            <span>Total</span>
+            <strong id="cart-total">R$ 0,00</strong>
+          </div>
+
+          <button class="primary-btn full" type="submit">Confirmar / Comprar pedido</button>
+          <p class="small-note">Demonstração visual: nenhum pagamento real será processado.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="confirmation" class="page confirmation-page">
+      <div class="confirmation-mark">✓</div>
+      <p class="eyebrow">STYLE CLOTHES</p>
+      <h1>Pedido Confirmado</h1>
+      <p>Entraremos em contato para mais informações.</p>
+      <p class="thank-you">Agradecemos pela compra!</p>
+      <button class="primary-btn" data-page="home">Voltar ao início</button>
+    </section>
+  </main>
+
+  <footer>
+    <span>Style clothes</span>
+    <p>Encontre combinações que combinam com você.</p>
+    <small>Projeto demonstrativo de loja virtual</small>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
